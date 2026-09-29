@@ -63,3 +63,9 @@
 .seafood-detail.detail-pulse{animation:detailPulse .55s ease}
 @keyframes detailPulse{0%{box-shadow:0 0 0 0 rgba(213,176,122,.55)}100%{box-shadow:0 0 0 12px rgba(213,176,122,0)}}
 @media(max-width:800px){.seafood-detail-media.dual{grid-template-columns:1fr 1fr}.seafood-detail-media .detail-photo{min-height:230px}}
+
+/* Low-resolution tourism crops removed until licensed full-size photographs are available. */
+.tour-photo{background-image:none!important;background:linear-gradient(135deg,#17354a,#456a78 55%,#b99767)!important}
+.detail-image{display:none!important}
+.tour-detail{grid-template-columns:minmax(0,1fr) 260px}
+@media(max-width:800px){.tour-detail{grid-template-columns:1fr}}
