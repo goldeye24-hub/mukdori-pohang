@@ -1,18 +1,6 @@
 {
-  "redirects": [
-    {"source":"/assets/hero.jpg","destination":"https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1600","permanent":false},
-    {"source":"/assets/legacy.jpg","destination":"https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg?auto=compress&cs=tinysrgb&w=1200","permanent":false},
-    {"source":"/assets/tank.jpg","destination":"https://images.pexels.com/photos/19503791/pexels-photo-19503791.jpeg?auto=compress&cs=tinysrgb&w=1200","permanent":false},
-    {"source":"/assets/menu-daege.jpg","destination":"https://images.pexels.com/photos/24186319/pexels-photo-24186319/free-photo-of-crab-served-on-a-pan.jpeg?auto=compress&cs=tinysrgb&w=1200","permanent":false},
-    {"source":"/assets/menu-kingcrab.jpg","destination":"https://images.pexels.com/photos/4869355/pexels-photo-4869355.jpeg?auto=compress&cs=tinysrgb&w=1200","permanent":false},
-    {"source":"/assets/menu-dokdo.jpg","destination":"https://images.pexels.com/photos/30946374/pexels-photo-30946374.jpeg?auto=compress&cs=tinysrgb&w=1200","permanent":false},
-    {"source":"/assets/menu-lobster.jpg","destination":"https://images.pexels.com/photos/10432704/pexels-photo-10432704.jpeg?auto=compress&cs=tinysrgb&w=1200","permanent":false},
-    {"source":"/assets/menu-sashimi.jpg","destination":"https://images.pexels.com/photos/4869328/pexels-photo-4869328.jpeg?auto=compress&cs=tinysrgb&w=1200","permanent":false},
-    {"source":"/assets/menu-mulhoe.jpg","destination":"https://images.pexels.com/photos/30946366/pexels-photo-30946366.jpeg?auto=compress&cs=tinysrgb&w=1200","permanent":false},
-    {"source":"/assets/tour-spacewalk.jpg","destination":"https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=1200","permanent":false},
-    {"source":"/assets/tour-beach.jpg","destination":"https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg?auto=compress&cs=tinysrgb&w=1200","permanent":false},
-    {"source":"/assets/tour-observatory.jpg","destination":"https://images.pexels.com/photos/1470502/pexels-photo-1470502.jpeg?auto=compress&cs=tinysrgb&w=1200","permanent":false},
-    {"source":"/assets/tour-hwanho.jpg","destination":"https://images.pexels.com/photos/1173777/pexels-photo-1173777.jpeg?auto=compress&cs=tinysrgb&w=1200","permanent":false},
-    {"source":"/assets/tour-museum.jpg","destination":"https://images.pexels.com/photos/167404/pexels-photo-167404.jpeg?auto=compress&cs=tinysrgb&w=1200","permanent":false}
+  "rewrites": [
+    {"source":"/assets/:name.jpg","destination":"/api/img?name=:name"},
+    {"source":"/assets/:name.webp","destination":"/api/img?name=:name"}
   ]
 }
