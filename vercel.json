@@ -1,6 +1,0 @@
-{
-  "rewrites": [
-    {"source":"/assets/:name.jpg","destination":"/api/img?name=:name"},
-    {"source":"/assets/:name.webp","destination":"/api/img?name=:name"}
-  ]
-}
