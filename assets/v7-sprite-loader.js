@@ -1,0 +1,1 @@
+(async()=>{try{const r=await fetch('/assets/v7-sprite.webp.base64.txt',{cache:'no-store'});const b=(await r.text()).trim();if(!b)return;document.documentElement.style.setProperty('--v7sprite',`url("data:image/webp;base64,${b}")`);}catch(e){console.error('v7 sprite load failed',e);}})();
