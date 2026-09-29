@@ -1,5 +1,5 @@
 /* Exact approved v7 image sprite mapping */
-:root{--v7sprite:url('/assets/v7-sprite.webp')}
+:root{--v7sprite:url('/api/v7-sprite')}
 .hero-inner{background-image:linear-gradient(90deg,rgba(2,9,15,.98) 0%,rgba(3,10,17,.91) 22%,rgba(3,10,17,.42) 48%,rgba(3,10,17,.06) 73%),var(--v7sprite)!important;background-size:auto 900px!important;background-position:left top!important;background-repeat:no-repeat!important}
 .feature.legacy{background-image:var(--v7sprite)!important;background-size:2400px 900px!important;background-position:0 0!important}
 .feature.tank{background-image:var(--v7sprite)!important;background-size:2400px 900px!important;background-position:-960px 0!important}
