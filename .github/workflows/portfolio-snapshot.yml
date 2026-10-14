@@ -1,0 +1,52 @@
+name: Capture real homepage for portfolio
+on:
+  push:
+    branches:
+      - portfolio/real-site-snapshot-20261014
+    paths-ignore:
+      - assets/portfolio-snapshot.jpg
+permissions:
+  contents: write
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: true
+      - name: Render actual local homepage (not artwork or mockup)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 8877 --bind 127.0.0.1 >/tmp/portfolio-http.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8877/ >/dev/null; then break; fi
+            sleep 1
+          done
+          google-chrome --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --hide-scrollbars --window-size=1440,1000 --virtual-time-budget=4000 --screenshot=/tmp/portfolio-home.png http://127.0.0.1:8877/
+          python3 -m pip install --disable-pip-version-check --quiet pillow
+          python3 - <<'PY'
+          from PIL import Image
+          im=Image.open('/tmp/portfolio-home.png').convert('RGB')
+          im.resize((1200,833)).save('assets/portfolio-snapshot.jpg',format='JPEG',quality=80,optimize=True)
+          print('Captured homepage screenshot:',im.size)
+          PY
+          test -s assets/portfolio-snapshot.jpg
+      - name: Save screenshot on snapshot-only branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/portfolio-snapshot.jpg
+          if ! git diff --cached --quiet; then
+            git commit -m "Capture actual browser rendering of client homepage"
+            git push origin HEAD:portfolio/real-site-snapshot-20261014
+          fi
+      - name: Upload screenshot artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: actual-homepage-screenshot
+          path: assets/portfolio-snapshot.jpg
+          retention-days: 7
