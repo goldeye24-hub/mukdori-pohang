@@ -24,6 +24,9 @@ jobs:
             if curl -fsS http://127.0.0.1:8877/ >/dev/null; then break; fi
             sleep 1
           done
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk >/dev/null
+          fc-cache -f >/dev/null
           google-chrome --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --hide-scrollbars --window-size=1440,1000 --virtual-time-budget=4000 --screenshot=/tmp/portfolio-home.png http://127.0.0.1:8877/
           python3 -m pip install --disable-pip-version-check --quiet pillow
           python3 - <<'PY'
