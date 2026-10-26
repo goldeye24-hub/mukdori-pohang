@@ -71,3 +71,15 @@
 .tour-detail.no-photo .detail-image{display:none}
 @media(max-width:800px){.tour-detail.no-photo{grid-template-columns:1fr}}
 .photo-credits{margin:14px 0 0;color:#b9c8d6;font-size:11px;line-height:1.6}.photo-credits a{color:#d8b475;text-decoration:underline}
+
+/* SEO visit guide: scoped additions preserve the existing page design. */
+#visit-guide .seo-intro{max-width:1000px;font-size:14px;line-height:1.85;color:#c8d3dd;margin:0 0 18px}
+#visit-guide .seo-faq{margin-top:24px;max-width:1000px}
+#visit-guide .seo-faq h3{font-size:17px;color:#fff;margin:0 0 8px}
+#visit-guide details{border-top:1px solid rgba(255,255,255,.15);padding:12px 0;font-size:14px}
+#visit-guide summary{cursor:pointer;font-weight:700;color:#e4eaf0}
+#visit-guide details p{color:#c8d3dd;margin:10px 0 0;line-height:1.85}
+.article .related-links h2{font-size:24px}
+.article .related-links>div{display:flex;flex-wrap:wrap;gap:8px}
+.article .related-links a{font-size:14px;border:1px solid #e3d8c8;border-radius:7px;padding:8px 12px;color:#71522e}
+.article .related-links a:hover,.article .related-links a:focus-visible{border-color:#a77b3d;text-decoration:underline}
